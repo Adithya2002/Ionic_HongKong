@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf = 'dish'>
+    <img src="{{'http://localhost:3000/' + dish.image}}"/>
+    <ion-card-content>
+      <ion-card-title>{{dish.name}}</ion-card-title>
+      <p>{{dish.description}}</p>
+    </ion-card-content>
+  </ion-card>
+  <div [hidden] = 'dish'>
+    <ion-spinner></ion-spinner>
+    loading....please wait
+  </div>
+
+  <ion-card *ngIf = 'promotion'>
+    <img  src="{{'http://localhost:3000/' + promotion.image}}"/>
+    <ion-card-content>
+      <ion-card-title>{{promotion.name}}</ion-card-title>
+      <p>{{promotion.description}}</p>
+    </ion-card-content>
+  </ion-card>
+  <div [hidden] = 'promotion'>
+    <ion-spinner></ion-spinner>
+    loading....please wait
+  </div>
+
+  <ion-card *ngIf = 'leader'>
+    <img src="{{'http://localhost:3000/' + leader.image}}"/>
+    <ion-card-content>
+      <ion-card-title>{{leader.name}}</ion-card-title>
+      <p>{{leader.designation}}</p>
+      <p>{{leader.description}}</p>
+    </ion-card-content>
+  </ion-card>
+  <div [hidden] = 'leader'>
+    <ion-spinner></ion-spinner>
+    loading....please wait
+  </div>
+
+
+
+</ion-content>
