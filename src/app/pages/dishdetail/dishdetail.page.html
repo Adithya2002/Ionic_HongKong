@@ -42,13 +42,18 @@
     <ion-list-header>
       Comments
     </ion-list-header>
+
     <ion-item *ngFor="let comment of dish.comments" text-wrap>
-      <h4> {{comment.comment}} </h4>
-      <p> {{comment.rating}} Stars</p>
+      <ion-label>
+      <h3> {{comment.comment}} </h3>
+      <h4> {{comment.rating}} Stars</h4>
+
       <p>
         <span> -- {{comment.author}} {{comment.date | date }} </span>
       </p>
+    </ion-label>
     </ion-item>
+
   </ion-list>
 
   <ion-fab horizontal="end" vertical="bottom" [hidden] ='favorite'>
