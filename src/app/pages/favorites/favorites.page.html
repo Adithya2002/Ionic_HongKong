@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>favorites</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="favorites">
+    <ion-list>
+      <ion-item-sliding *ngFor="let favorite of favorites" #item>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="{{'http://localhost:3000/' + favorite.image}}"/>
+        </ion-avatar>
+        <ion-label>
+        <h3>{{ favorite.name }}</h3>
+        <p>{{ favorite.description }}</p>
+      </ion-label>
+      </ion-item>
+      <ion-item-options color = "danger" side="end">
+        <button ion-button color="danger" (click)="deleteFavorite(item, favorite.id)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+  <ion-title *ngIf ="!favorites">Sorry, you have no favorites</ion-title>
+
+</ion-content>

@@ -9,4 +9,19 @@
 
 <ion-content>
 
+  <div *ngIf = "dishes">
+    <ion-card [routerLink] = "['/dishdetail',d.id ]" *ngFor="let d of dishes">
+      <img src="{{'http://localhost:3000/' + d.image}}"/>
+      <ion-card-content>
+        <ion-card-title>{{d.name}}</ion-card-title>
+        <p>{{d.description}}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div [hidden] ="dishes">
+    <ion-spinner></ion-spinner>
+    <h4>loading...please wait</h4>
+  </div>
+
 </ion-content>

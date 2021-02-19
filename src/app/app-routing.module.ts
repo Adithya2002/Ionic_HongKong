@@ -29,8 +29,36 @@ const routes: Routes = [
     loadChildren: () => import('./pages/contact/contact.module').then( m => m.ContactPageModule)
   },
   {
+    path: 'reservation',
+    loadChildren: () => import('./pages/reservation/reservation.module').then( m => m.ReservationPageModule)
+  },
+  {
     path: 'about',
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'favorites',
+    loadChildren: () => import('./pages/favorites/favorites.module').then(m => m.FavoritesPageModule)
+  },
+  {
+    path: 'dishdetail/:id',
+    loadChildren: () => import('./pages/dishdetail/dishdetail.module').then(m => m.DishdetailPageModule)
+  },
+  {
+    path: 'dishdetail',
+    loadChildren: () => import('./pages/dishdetail/dishdetail.module').then( m => m.DishdetailPageModule)
+  },
+  {
+    path: 'reservation',
+    loadChildren: () => import('./pages/reservation/reservation.module').then( m => m.ReservationPageModule)
+  },
+  {
+    path: 'favorites',
+    loadChildren: () => import('./pages/favorites/favorites.module').then( m => m.FavoritesPageModule)
+  },
+  {
+    path: 'comment',
+    loadChildren: () => import('./pages/comment/comment.module').then( m => m.CommentPageModule)
   }
 ];
 

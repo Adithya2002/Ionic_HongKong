@@ -1,4 +1,4 @@
-import { Interface } from 'readline';
+
 import { Comment } from './comment';
 
 export interface Dish {

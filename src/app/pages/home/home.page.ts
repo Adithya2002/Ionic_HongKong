@@ -27,6 +27,7 @@ export class HomePage implements OnInit {
   constructor(private dishService:DishService, private leaderService:LeaderService, private promotionService:PromotionService, @Inject('BaseURL') public BaseURL ) { }
 
   ngOnInit() {
+    console.log('nginit of home');
     this.dishService.getDishes().subscribe((dishes) => this.dishes = dishes)
     this.dishService.getFeaturedDish().subscribe((dish) => this.dish = dish);
     this.leaderService.getFeaturedLeader().subscribe((leader) => this.leader = leader);
