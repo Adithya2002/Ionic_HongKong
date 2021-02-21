@@ -2,7 +2,8 @@ import { prepareSyntheticListenerFunctionName } from '@angular/compiler/src/rend
 import { Component } from '@angular/core';
 
 import { ModalController } from '@ionic/angular';
-import { ReservationPage } from './pages/reservation/reservation.page'
+import { ReservationPage } from './pages/reservation/reservation.page';
+import { LoginPage } from './pages/login/login.page';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -33,6 +34,11 @@ export class AppComponent {
   async openReserve() {
 
     let modal = await this.modalController.create({component: ReservationPage});
-    return await modal.present()
+    return await modal.present();
+  }
+
+  async openLogin(){
+    let modal = await this.modalController.create({component: LoginPage});
+    return await modal.present();
   }
 }

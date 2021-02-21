@@ -15,46 +15,55 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngIf = 'dish'>
-    <img src="{{'http://localhost:3000/' + dish.image}}"/>
-    <ion-card-content>
-      <ion-card-title>{{dish.name}}</ion-card-title>
-      <p>{{dish.description}}</p>
-    </ion-card-content>
-  </ion-card>
-  <div [hidden] = 'dish'>
-    <ion-spinner></ion-spinner>
-    loading....please wait
-  </div>
-  <ion-row>
-    <ion-col>
-      <ion-button><ion-icon name ="star"></ion-icon></ion-button>
-    </ion-col>
-    <ion-col>
-      <ion-button  class = 'ion-icon-left' clear small>
 
-        <div>{{ numcomments }} Comments</div>
-      </ion-button>
-    </ion-col>
-  </ion-row>
+  <ion-grid>
+    <ion-row>
 
-  <ion-list *ngIf="dish">
-    <ion-list-header>
-      Comments
-    </ion-list-header>
+      <ion-col size-12 size-lg-6>
+        <ion-card *ngIf = 'dish'>
+          <img src="{{'http://localhost:3000/' + dish.image}}"/>
+          <ion-card-content>
+            <ion-card-title>{{dish.name}}</ion-card-title>
+            <p>{{dish.description}}</p>
+            <ion-button><ion-icon name ="star"></ion-icon></ion-button>
+            <ion-button  class = 'ion-icon-left' clear small>
+              <div>{{ numcomments }} Comments</div>
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+        <div [hidden] = 'dish'>
+          <ion-spinner></ion-spinner>
+          loading....please wait
+        </div>
 
-    <ion-item *ngFor="let comment of dish.comments" text-wrap>
-      <ion-label>
-      <h3> {{comment.comment}} </h3>
-      <h4> {{comment.rating}} Stars</h4>
+      </ion-col>
 
-      <p>
-        <span> -- {{comment.author}} {{comment.date | date }} </span>
-      </p>
-    </ion-label>
-    </ion-item>
+      <ion-col size-12 size-lg-6>
+        <ion-list *ngIf="dish">
+          <ion-list-header>
+            Comments
+          </ion-list-header>
 
-  </ion-list>
+          <ion-item *ngFor="let comment of dish.comments" text-wrap>
+            <ion-label>
+            <h3> {{comment.comment}} </h3>
+            <h4> {{comment.rating}} Stars</h4>
+
+            <p>  <span> -- {{comment.author}} {{comment.date | date }} </span></p>
+          </ion-label>
+          </ion-item>
+
+        </ion-list>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+
+
+
+
 
   <ion-fab horizontal="end" vertical="bottom" [hidden] ='favorite'>
     <ion-fab-button (click) ='addToFavorites()'>

@@ -21,6 +21,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
+    path:'login',
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
+  },
+  {
     path: 'menu',
     loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
   },
@@ -59,6 +63,10 @@ const routes: Routes = [
   {
     path: 'comment',
     loadChildren: () => import('./pages/comment/comment.module').then( m => m.CommentPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   }
 ];
 

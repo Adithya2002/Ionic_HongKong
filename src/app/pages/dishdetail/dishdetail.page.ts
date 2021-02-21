@@ -8,7 +8,8 @@ import { Dish } from '../../shared/dish';
 import { Comment } from '../../shared/comment'
 import { CommentPage } from '../comment/comment.page'
 import { switchMap } from 'rxjs/operators';
-import { Observable, fromEvent } from 'rxjs';
+import { Storage } from '@ionic/storage';
+
 
 @Component({
   selector: 'app-dishdetail',
@@ -33,7 +34,8 @@ export class DishdetailPage implements OnInit {
     private route:ActivatedRoute,
     public toastController:ToastController,
     public actionSheetController:ActionSheetController,
-    public modalController:ModalController
+    public modalController:ModalController,
+    private storage:Storage
     ) {
 
 
@@ -77,7 +79,19 @@ export class DishdetailPage implements OnInit {
 
   async addToFavorites() {
     console.log('Adding to Favorites', this.dish.id);
-    //Observable.subscribe
+
+    if(this.dish.id == 0){
+      this.storage.set('fav0', this.dish.id)
+    }
+    else if (this.dish.id ==1){
+      this.storage.set('fav1',this.dish.id )
+    }
+    else if (this.dish.id ==2){
+      this.storage.set('fav2',this.dish.id )
+    }
+    else if (this.dish.id ==3){
+      this.storage.set('fav3',this.dish.id )
+    }
     this.favorite = this.favoriteService.addFavorites(this.dish.id);
     const toast = await this.toastController.create({
       message: 'Dish ' + this.dish.id + ' added as favorite successfully',

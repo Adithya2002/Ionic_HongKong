@@ -10,13 +10,20 @@
 <ion-content>
 
   <div *ngIf = "dishes">
-    <ion-card [routerLink] = "['/dishdetail',d.id ]" *ngFor="let d of dishes">
-      <img src="{{'http://localhost:3000/' + d.image}}"/>
-      <ion-card-content>
-        <ion-card-title>{{d.name}}</ion-card-title>
-        <p>{{d.description}}</p>
-      </ion-card-content>
-    </ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col size-12 size-lg-4 *ngFor="let d of dishes">
+          <ion-card [routerLink] = "['/dishdetail',d.id ]" >
+            <img src="{{'http://localhost:3000/' + d.image}}"/>
+            <ion-card-content>
+              <ion-card-title>{{d.name}}</ion-card-title>
+              <p>{{d.description}}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
   </div>
 
   <div [hidden] ="dishes">
