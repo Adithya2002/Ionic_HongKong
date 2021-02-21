@@ -92,7 +92,7 @@ export class DishdetailPage implements OnInit {
     else if (this.dish.id ==3){
       this.storage.set('fav3',this.dish.id )
     }
-    this.favorite = this.favoriteService.addFavorites(this.dish.id);
+    this.favorite = this.favoriteService.addFavorite(this.dish.id);
     const toast = await this.toastController.create({
       message: 'Dish ' + this.dish.id + ' added as favorite successfully',
       duration: 2000,

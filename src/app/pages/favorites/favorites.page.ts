@@ -22,10 +22,11 @@ export class FavoritesPage implements OnInit {
    }
 
   ngOnInit() {
-    this.router.events.subscribe(() => {
+
       console.log('nginit of favorites');
       this.favoriteService.getFavorites().subscribe((favorites) => this.favorites = favorites );
-    })
+      console.log(this.favorites);
+
 
 
   }

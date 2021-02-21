@@ -10,6 +10,7 @@
 <ion-content>
 
   <div *ngIf="favorites">
+
     <ion-list>
       <ion-item-sliding *ngFor="let favorite of favorites" #item>
       <ion-item>
@@ -22,7 +23,7 @@
       </ion-label>
       </ion-item>
       <ion-item-options color = "danger" side="end">
-        <button ion-button color="danger" (click)="deleteFavorite(item, favorite.id)">
+        <button ion-button color="danger" (click)="deleteFavorite(favorite.id)">
           <ion-icon name="trash"></ion-icon>
         </button>
       </ion-item-options>
